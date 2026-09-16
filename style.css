@@ -34,7 +34,7 @@ body, h1, h2, h3, h4, h5 {
    IMAGEM DA SEÇÃO SOBRE MIM
    ========================================== */
 .img-sobre {
-  width: 100%;        /* Ocupa a largura total disponível no celular */
+  width: %60;        /* Ocupa a largura total disponível no celular */
   max-width: 600px;   /* No computador, ela trava no tamanho máximo de 600px */
   height: auto;       /* Mantém a proporção correta e não deforma a imagem */
   border: 1px solid rgb(72, 64, 64);

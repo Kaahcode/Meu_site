@@ -1,0 +1,53 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E TIPOGRAFIA
+   ========================================== */
+body, h1, h2, h3, h4, h5 { 
+  font-family: "Raleway", sans-serif; 
+}
+
+/* ==========================================
+   GRID DE FOTOS (PORTFÓLIO)
+   ========================================== */
+.w3-third img { 
+  margin-bottom: -6px; 
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.w3-third img:hover { 
+  opacity: 1; 
+}
+
+/* ==========================================
+   FOTO DE PERFIL (MENU LATERAL)
+   ========================================== */
+.foto-perfil {
+  width: 160px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto; /* Centraliza naturalmente no menu */
+  display: block;
+}
+
+/* ==========================================
+   IMAGEM DA SEÇÃO SOBRE MIM
+   ========================================== */
+.img-sobre {
+  width: 100%;        /* Ocupa a largura total disponível no celular */
+  max-width: 600px;   /* No computador, ela trava no tamanho máximo de 600px */
+  height: auto;       /* Mantém a proporção correta e não deforma a imagem */
+  border: 1px solid rgb(72, 64, 64);
+  box-shadow: 3px 3px 8px rgb(43, 40, 40);
+}
+
+/* ==========================================
+   REGRAS ADAPTATIVAS PARA CELULAR (MEDIA QUERY)
+   ========================================== */
+@media (max-width: 768px) {
+  /* Diminui o espaçamento gigante do título no celular */
+  .w3-sidebar h3 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}

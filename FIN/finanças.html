@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ajustado o link do CSS para o padrão do GitHub Pages -->
+    <link rel="stylesheet" href="finanças.css">
+    <title>Controle Financeiro</title>
+</head>
+<body>
+    <main class="container">
+
+    <h1>Controle Financeiro</h1>
+    
+   <!-- Removemos o POST/action do Flask. O id="formulario-despesa" foi adicionado -->
+   <form id="formulario-despesa">
+
+    <h6>Qual a descrição do produto?</h6>
+    <!-- Adicionado id="descricao" -->
+    <input
+    type="text" 
+    id="descricao"
+    name="descricao"
+    placeholder="Descrição"
+    required
+    >
+
+    <br>
+    
+    <h6>Qual a categoria do produto?</h6>
+    <!-- Adicionado id="categoria" -->
+    <input
+    type="text" 
+    id="categoria"
+    name="categoria"
+    placeholder="Categoria"
+    required
+    >
+
+    <br>
+
+    <h6>Qual é o valor do produto?</h6>
+    <!-- Adicionado id="valor" -->
+    <input
+    type="text" 
+    id="valor"
+    name="valor"
+    placeholder="Valor"
+    required
+    >
+    <br>
+    <br>
+    <button type="submit">
+       Adicionar
+    </button> 
+    <br>
+    
+    <!-- Mudamos o tipo para button para não dar conflito com o envio do formulário -->
+    <button type="button" onclick="window.close()">
+        Sair
+    </button>
+
+   </form>
+   
+    <br>
+    <!-- Área onde o JS vai colocar a mensagem de "Cadastrada com sucesso!" -->
+    <div id="mensagem-container"></div>
+
+    <h2>Lista de despesas</h2>
+
+    <!-- Esta área (div) vai receber a lista de despesas criada pelo JS -->
+    <div id="lista-despesas-container">
+        <p>Nenhuma despesa cadastrada.</p>
+    </div>
+
+    <!-- Esta área vai receber o valor total calculado pelo JS -->
+    <div id="total-container"></div>
+
+    <!-- Vincula o arquivo JavaScript que criamos abaixo -->
+    <script src="fin.js"></script>
+</body>
+</html>

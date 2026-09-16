@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="cadastro-login.css">
+</head>
+<body>
+
+<main class="container">
+    <!-- Removido o action do Flask. Adicionado id="formulario-cadastro" -->
+    <form id="formulario-cadastro" class="main">
+
+        <h1>Cadastre-se</h1>
+
+        <!-- NOME E SOBRENOME -->
+        <div class="input-nome">
+            <!-- Adicionado id="nome" -->
+            <input type="text" id="nome" name="nome" placeholder="Nome:" required>
+            <!-- Adicionado id="sobrenome" -->
+            <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome:" required>
+        </div>
+
+        <!-- E-MAIL -->
+        <div class="input-box">
+            <!-- Adicionado id="email" -->
+            <input type="email" id="email" name="email" placeholder="E-mail:" required>
+        </div>
+
+        <!-- SENHA -->
+        <div class="input-box input-senha-confirmar">
+            <!-- Adicionado id="password" -->
+            <input type="password" id="password" name="password" placeholder="Senha:" required>
+            <!-- Adicionado id="confirmar_senha" -->
+            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirmar senha:" required>
+        </div>
+
+        <br>
+        <!-- DATA DE NASCIMENTO -->
+        <section class="data-nascimento">
+            <h2>Data de nascimento</h2>
+            
+            <div class="select-data">
+                <!-- DIA -->
+                <div class="campo-data">
+                    <label for="dia">Dia</label>
+                    <select name="dia" id="dia" required>
+                        <option value="">Dia</option>
+                        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+                        <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                        <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+                        <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+                        <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+                        <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+                        <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+                        <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                </div>
+
+                <!-- MÊS -->
+                <div class="campo-data">
+                    <label for="mes">Mês</label>
+                    <select name="mes" id="mes" required>
+                        <option value="">Mês</option>
+                        <option value="1">Janeiro</option><option value="2">Fevereiro</option>
+                        <option value="3">Março</option><option value="4">Abril</option>
+                        <option value="5">Maio</option><option value="6">Junho</option>
+                        <option value="7">Julho</option><option value="8">Agosto</option>
+                        <option value="9">Setembro</option><option value="10">Outubro</option>
+                        <option value="11">Novembro</option><option value="12">Dezembro</option>
+                    </select>
+                </div>
+
+                <!-- ANO -->
+                <div class="campo-data">
+                    <label for="ano">Ano</label>
+                    <select name="ano" id="ano" required>
+                        <option value="">Ano</option>
+                        <option value="2026">2026</option><option value="2025">2025</option>
+                        <option value="2024">2024</option><option value="2023">2023</option>
+                        <option value="2022">2022</option><option value="2021">2021</option>
+                        <option value="2020">2020</option><option value="2019">2019</option>
+                        <option value="1999">1999</option><option value="1998">1998</option>
+                        <option value="1997">1997</option><option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- GÊNERO -->
+        <br>
+        <div class="campo-data" style="display: block;">
+            <label for="genero">Gênero</label>
+            <select name="genero" id="genero" required style="width: 100%; padding: 5px;">
+                <option value="">Selecione o gênero</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+
+        <br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Área onde o JS vai colocar as mensagens de erro ou sucesso -->
+    <div id="mensagem-container" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
+
+    <p style="text-align: center; margin-top: 15px;">
+        Já tem uma conta? <a href="login.html">Faça login</a>
+    </p>
+</main>
+
+    <!-- Vincula o arquivo JavaScript de cadastro criado abaixo -->
+    <script src="cadastro.js"></script>
+</body>
+</html>

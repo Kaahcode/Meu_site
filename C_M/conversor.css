@@ -1,0 +1,56 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "blinker", serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    /* Garanta que a sua imagem "3.jpg" esteja dentro de uma pasta chamada img1 */
+    background-image: url('img1/3.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Evita que o fundo cause barras de rolagem estranhas no celular */
+    background-attachment: fixed; 
+}
+
+/* CONTAINER (Boa prática: adicionar uma pequena folga nas laterais para o celular) */
+.container {
+    width: 100%;
+    max-width: 600px; /* Evita que o conteúdo estique demais no PC */
+    padding: 20px;    /* Margem interna para o texto não colar na borda do celular */
+}
+
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: aliceblue;
+}
+
+.container p {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(0, 0, 0);
+}
+
+/* AJUSTES EXCLUSIVOS PARA CELULAR (Telas até 768px) */
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 26px; /* Texto um pouco menor e confortável para ler no celular */
+        margin-bottom: 20px;
+    }
+
+    .container p {
+        font-size: 18px; /* Reduz o parágrafo para não quebrar linhas de forma feia */
+        margin-bottom: 20px;
+    }
+}

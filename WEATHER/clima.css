@@ -1,0 +1,94 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "blinker", serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    background-image: url('img/img/3.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mantém o fundo fixo e bonito no celular */
+}
+
+.container {
+    width: 90%;            /* No celular, ocupa 90% da largura da tela para não colar nas bordas */
+    max-width: 500px;      /* No computador, ele trava no limite máximo de 500px */
+    min-height: 290px; 
+    background-color: transparent;
+    border: 2px solid rgb(251, 251, 251);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Garante o efeito blur no navegador Safari (iPhone) */
+    border-radius: 5px;
+    color: #f7f6f6;
+    padding: 30px 20px;    /* Reduzi um pouco o padding lateral para sobrar mais espaço no celular */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 80%;            /* Aumentado de 65% para 80% para ficar mais fácil de digitar no celular */
+    height: 40px; 
+    background-color: #fefdfd;
+    border: none;
+    border-radius: 6px; 
+    font-size: 20px; 
+    color: rgb(25, 25, 25);
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 20px;   /* Adicionado margem abaixo do input para não colar nos outros elementos */
+}
+
+.placeholder {
+    font-size: 25px;
+    text-decoration-color: rgb(32, 32, 32);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+button {
+    width: 80%;            /* Aumentado para 80% para combinar perfeitamente com o tamanho do input */
+    height: 40px; 
+    background-color: #fefdfd;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 22px;
+    color: rgb(25, 25, 25);
+    font-weight: 250;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   AJUSTES EXCLUSIVOS PARA CELULAR (Media Query)
+   ========================================== */
+@media (max-width: 480px) {
+    .container h1 {
+        font-size: 28px;     /* Diminui o título para não quebrar em várias linhas no celular */
+        margin-bottom: 20px;
+    }
+
+    .placeholder {
+        font-size: 20px;     /* Diminui o texto interno do bloco */
+        margin-bottom: 20px;
+    }
+
+    input, button {
+        width: 100%;         /* No celular muito pequeno, eles ocupam toda a largura interna da caixa */
+        font-size: 18px;     /* Ajusta o tamanho da fonte para não estourar os botões */
+    }
+}

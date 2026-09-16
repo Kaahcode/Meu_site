@@ -1,0 +1,194 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "blinker", serif;
+}
+
+/* É o fundo da página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ajustado de 200vh para 100vh para centralizar perfeitamente na tela do celular */
+    background-image: url('img5/3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mantém o fundo fixo ao rolar no celular */
+}
+
+/* É a caixa onde ficam as escritas */
+.container {
+    width: 90%;            /* Ocupa 90% da tela em smartphones */
+    max-width: 400px;      /* Trava em 400px em computadores */
+    background-color: transparent;
+    border: 2px solid rgb(251, 250, 250);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px); /* Efeito de vidro fosco para iPhones */
+    border-radius: 10px;
+    color: #fffefe;
+    padding: 30px 25px;    /* Padding ajustado para dar mais espaço interno no mobile */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Correção do bug de sintaxe do box-shadow */
+    text-align: center;
+}
+
+/* Título da caixa */
+.container h1 {
+    font-size: 26px;       /* Corrigido: sem o espaço antes do 'px' */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Escritas menores da caixa */
+.container h6 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* Cor, tamanho e estilização dos inputs de texto */
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    width: 80%;            /* Aumentado de 50% para 80% para melhor digitação no celular */
+    height: 35px;          /* Aumentado para 35px para o texto não ficar cortado */
+    background-color: #fefdfd;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: rgb(50, 50, 50);
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 15px;   /* Mais espaçamento entre blocos */
+}
+
+/* ==========================================
+   CLASSE DATA DE NASCIMENTO
+   ========================================== */
+.data-nascimento {
+    margin-bottom: 20px;
+}
+
+.data-nascimento h2 { 
+    margin: 0 0 10px; 
+    font-size: 20px; 
+}
+
+.select-data { 
+    display: flex; 
+    gap: 10px; 
+    width: 80%;       /* Alinha a largura com os outros inputs */
+    margin: 0 auto;   /* Centraliza o conjunto de selects */
+}
+
+.campo-data { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+    flex: 1; 
+}
+
+.campo-data select { 
+    padding: 8px;     /* Aumentado de 6px para 8px para facilitar o toque no celular */
+    font-size: 14px;  /* Fonte levemente maior para melhor leitura */
+    border-radius: 4px;
+    border: none;
+    background-color: #fefdfd;
+    color: rgb(50, 50, 50);
+}
+
+/* ==========================================
+   CLASSE GÊNEROS (RADIO BUTTONS)
+   ========================================== */
+.genero {
+    margin-bottom: 20px;
+}
+
+.genero h6 { 
+    font-size: 20px; 
+    margin: 0 0 10px; 
+}
+
+.generos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha as opções à esquerda dentro do bloco */
+    width: 80%;
+    margin: 0 auto 15px;     /* Centraliza o bloco de gêneros */
+    gap: 8px;                /* Espaço confortável entre uma opção e outra */
+}
+
+.generos label {
+    display: flex;
+    align-items: center;    /* Centraliza verticalmente a bolinha com o texto */
+    gap: 8px;               /* Espaço entre a bolinha do radio e a palavra */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Força os botões do tipo radio a terem um tamanho fixo e quadrado perfeito */
+.generos input[type="radio"] {
+    accent-color: #0f0f0f; 
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+/* ==========================================
+   OUTROS ELEMENTOS (LINKS E BOTÃO)
+   ========================================== */
+.placeholder {
+    font-size: 18px;
+    text-decoration-color: rgb(32, 32, 32);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.acessar {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.acessar p { color: #d4d1d1; } 
+.acessar a { 
+    color: #ffffff; /* Mudado para branco para dar contraste sobre o blur */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Função botão */
+button {
+    width: 50%;            /* Aumentado de 30% para 50% para melhor clique no celular */
+    height: 35px;          /* Proporção ideal para telas de toque */
+    background-color: rgb(25, 25, 25);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fefdfd;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   AJUSTES EXCLUSIVOS PARA CELULARES PEQUENOS
+   ========================================== */
+@media (max-width: 400px) {
+    .container {
+        padding: 25px 15px;
+    }
+    
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"],
+    .select-data,
+    .generos {
+        width: 100%;       /* Em telas muito finas, expande para aproveitar todo o espaço interno */
+    }
+    
+    button {
+        width: 70%;        /* Aumenta o botão para o clique ser ainda mais fácil */
+    }
+}

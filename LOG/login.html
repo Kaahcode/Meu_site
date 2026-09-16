@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com" rel="stylesheet">
+    <!-- Link do CSS ajustado para o padrão do GitHub Pages -->
+    <link rel="stylesheet" href="login.css">   
+    <title>LOGIN</title>
+</head>
+<body>
+
+    <main class="container">
+        <!-- Adicionado o id="formulario-login" para o JavaScript capturar -->
+        <form id="formulario-login">
+            <h1>Login</h1> 
+            
+            <div class="input-box">
+                <!-- Adicionado id="email" e o atributo required -->
+                <input id="email" placeholder="Usuário (E-mail)" type="email" required>
+                <i class="bx bxs-user"></i>
+            </div>
+                           
+            <div class="input-box">
+                <!-- Adicionado id="password" e o atributo required -->
+                <input id="password" placeholder="Senha" type="password" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar senha
+                </label>
+                <a href="#">Esqueci senha</a>
+            </div>
+
+            <button type="submit" class="login">Login</button>
+
+            <!-- Área onde o JS vai colocar as mensagens de erro ou sucesso -->
+            <div id="mensagem-container" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
+
+            <div class="register-link"> 
+                <!-- Ajustado o link para apontar para a sua página de cadastro local/GitHub -->
+                <p> Não tem uma conta? <a href="index.html">Cadastre-se</a></p>
+            </div>
+        </form>
+    </main>
+
+    <!-- Vincula o arquivo JavaScript de login criado abaixo -->
+    <script src="log.js"></script>
+</body>
+</html>

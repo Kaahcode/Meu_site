@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuários</title>
+    <!-- Link do CSS ajustado para o padrão do GitHub Pages -->
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+     <main class="container">
+
+    <h1>Cadastro de Usuários</h1>
+
+    <!-- Adicionado o id="formulario-cadastro" para o JS capturar o envio -->
+    <form id="formulario-cadastro">
+
+        <!-- Adicionado id="nome" -->
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Digite seu nome"
+            required
+        >
+
+        <br><br>
+
+        <!-- Adicionado id="idade" -->
+        <input
+            type="number"
+            id="idade"
+            name="idade"
+            placeholder="Digite sua idade"
+            required
+        >
+
+        <br><br>
+
+        <!-- Adicionado id="cpf" -->
+        <input
+            type="text"
+            id="cpf"
+            name="cpf"
+            placeholder="Digite seu cpf"
+            required
+        >
+
+        <br><br>
+
+        <!-- Adicionado id="telefone" -->
+        <input
+            type="text"
+            id="telefone"
+            name="telefone"
+            placeholder="Digite seu telefone"
+            required
+        >
+
+        <br><br>
+
+        <!-- Adicionado id="genero" -->
+        <select id="genero" name="genero" required>
+            <option value="">
+                Selecione o gênero
+            </option>
+            <option value="Feminino">
+                Feminino
+            </option>
+            <option value="Masculino">
+                Masculino
+            </option>
+            <option value="Outro">
+                Outro
+            </option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Cadastrar
+        </button>
+
+    </form>
+
+    <!-- Área onde o JS vai colocar a mensagem de "Cadastrado com sucesso!" -->
+    <div id="mensagem-container"></div>
+
+    <br>
+    <hr>
+    <br>
+    
+    <h2>Usuários cadastrados</h2>
+
+    <!-- Esta área (div) vai receber os blocos de usuários criados pelo JS -->
+    <div id="lista-usuarios-container">
+        <p>Nenhum usuário cadastrado.</p>
+    </div>
+
+    <!-- Vincula o arquivo JavaScript abaixo -->
+    <script src="user.js"></script>
+</body>
+</html>

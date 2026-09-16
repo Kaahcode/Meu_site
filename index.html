@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Karen Gonzaga</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="style.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <img src="./arquivos/Perfil/eu.webp" style="width:160px; height:140px; border-radius:50%; object-fit:cover; float:center; margin-right:10px;">
+  <br>
+  <h3 class="w3-padding-64 w3-center"><b>Hello Guys!<br> Bem-Vindos!</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <a href="#projetos" onclick="w3_close()" class="w3-bar-item w3-button">PROJETOS</a> 
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">SOBRE MIM</a> 
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTATO</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Karen Gonzaga</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens --> 
+  <div class="w3-hide-large" style="margin-top:50px"></div>
+  
+  <!-- Photo grid -->
+  <div class="w3-row">
+    <div class="w3-third">
+      <img src="arquivos/FOTOS/IMAGEM 1.jpg"  style="width:100%; height:250px; object-fit:cover; border:2px solid rgb(131, 127, 127); box-shadow:2px 3px 3px rgb(43, 40, 40);"
+             onclick="onClick(this)">
+    </div>
+
+    <div class="w3-third">
+      <img src="arquivos/FOTOS/IMAGEM 3.jpg"   style="width:100%; height:250px; object-fit:cover; border:2px solid rgb(131, 127, 127); box-shadow:2px 3px 3px rgb(43, 40, 40);"
+             onclick="onClick(this)">
+    </div>
+    
+    <div class="w3-third">
+      <img src="arquivos/FOTOS/IMAGEM 3.jpg"   style="width:100%; height:250px; object-fit:cover; border:2px solid rgb(131, 127, 127); box-shadow:2px 3px 3px rgb(43, 40, 40);"
+             onclick="onClick(this)">
+    </div>
+  </div>
+
+ 
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+   
+    <span
+        class="w3-button w3-black w3-xlarge w3-display-topright">
+        ×
+    </span>
+<div class="w3-modal-content w3-animate-zoom w3-center
+   w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image" >
+      <p id="caption"></p>
+    </div>
+
+</div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h4><b>Uma Engenheira de Software em formação!</b></h4>
+    <img src="./arquivos/img/3.jpg" alt="Me" style="width:600px; height:450px; border:1px solid rgb(72, 64, 64); box-shadow:3px 3px 8px rgb(43, 40, 40);">
+      <p>Por que Engenharia de Software? <br> 
+        <br> A engenharia projeta o futuro, a tecnologia o executa e, juntas, <br> elas movem o mundo com soluções inovadoras. <br>
+        <br> Escolhi fazer parte desse universo motivada pelo desejo de impulsionar <br> mudanças e transformar sonhos e objetivos em realidade.
+      </p>
+      <p>Email: karen.engsoftware@gmail.com
+</p>
+      <a href="https://github.com/Kaahcode" title="GITHUB" target="_blank class="w3-hover-opacity style="text-decoration: none";> GITHUB</a> 
+      <h4 class="w3-padding-16">Níveis de linguagens adqueridas </h4>
+      <p class="w3-wide">Java</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:65%">75%</div>
+      </div>
+      <p class="w3-wide">Python</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide">JavaScript</p>
+      <div class="w3-white">
+        <div class="w3-container w3-padding-small w3-center w3-grey" style="width:65%">60%</div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="w3-row-padding" style="margin:0" id="projetos">
+        <div class="w3-col m9 l9 w3-margin-bottom" style="margin: auto; float: none;">
+          <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off" style="min-height: 400px;">
+
+            <li class="w3-black w3-xlarge w3-padding-32">Front-End e Back-End </li>
+
+            <li class="w3-padding-16">  
+                  <a href= "WEATHER/clima.html" class="w3-hover-text-grey" style="text-decoration: none; color: inherit;" 
+                  >  1 - Aplicativo de Clima </a></li>
+
+            <li class="w3-padding-16"> 
+              <a href= "FIN/financas.html" class="w3-hover-text-grey" style="text-decoration:none; color:inherit;"
+               >  2 - Controle Financeiro </a></li>
+
+            <li class="w3-padding-16"> 
+              <a href= "C_USER/cadastro.html" class="w3-hover-text-grey" style="text-decoration:none; color:inherit;"
+              > 3 - Cadastro de usuários</a></li>
+
+              <li class="w3-padding-16">  
+                  <a href= "LOG/login.html" class="w3-hover-text-grey" style="text-decoration: none; color: inherit;">
+                     4 - Caixa de login </a> </li>
+
+            <li class="w3-padding-16"> 
+              <a href= "C_M/conversor.html" class="w3-hover-text-grey" style="text-decoration:none; color:inherit;"
+              > 5 - Conversor de Moedas</a></li>
+            </li>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <!-- Contact section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:600px">
+      <h4 class="w3-center"><b>Contato</b></h4>
+
+   
+       <form 
+    action="https://formsubmit.co/kaahmiih17@gmail.com"
+    method="POST"
+>
+ <input 
+        type="hidden"
+        name="_next"
+        value="http://127.0.0.1:5500/Meu_site.html"
+    >
+    <!-- Deixa a página em português -->
+    <input type="hidden" name="_language" value="pt">
+
+    <!-- Título do e-mail que você receberá -->
+    <input 
+        type="hidden"
+        name="_subject"
+        value="Nova mensagem do meu portfólio"
+    >
+
+    <!-- Evita robôs e spam -->
+    <input 
+        type="text"
+        name="_honey"
+        style="display:none"
+    >
+
+    <div class="w3-section">
+
+        <label for="nome">
+            <b>Nome</b>
+        </label>
+
+        <input
+            class="w3-input w3-border"
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Digite seu nome"
+            required
+        >
+
+    </div>
+
+    <div class="w3-section">
+
+        <label for="email">
+            <b>E-mail</b>
+        </label>
+
+        <input
+            class="w3-input w3-border"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite seu e-mail"
+            required
+        >
+
+    </div>
+
+    <div class="w3-section">
+
+        <label for="mensagem">
+            <b>Mensagem</b>
+        </label>
+
+        <textarea
+            class="w3-input w3-border"
+            id="mensagem"
+            name="mensagem"
+            rows="6"
+            placeholder="Digite sua mensagem"
+            required
+        ></textarea>
+
+    </div>
+
+    <button
+        type="submit"
+        class="w3-button w3-block w3-black w3-margin-bottom"
+    >
+        Enviar
+    </button>
+
+</form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    
+      <div class="w3-third">
+        <h3>Minhas redes: </h3>
+        <ul class="w3-ul">
+          <li class="w3-padding-16 w3-hover-black">
+            <a href="https://www.instagram.com/kaah.dev_" style="text-decoration:none";>
+            <img src="Logos/Insta.png" class="w3-left w3-margin-right" style="width:30px">
+            <span class="w3-large">Instagram</span><br></a>
+            
+          </li>
+
+          </li> 
+           <li class="w3-padding-16 w3-hover-black">
+            <a href="https://www.tiktok.com/@kaahgonzaga.dev" style="text-decoration:none";>
+            <img src="Logos/tiktok.png" class="w3-left w3-margin-right" style="width:30px">
+            <span class="w3-large">TikTok</span><br></a>
+            
+          </li> 
+        </ul>
+      </div>
+      
+      
+      <div class="w3-third">
+        <h3>POPULAR TAGS</h3>
+        <p>
+          <span class="w3-tag w3-black w3-margin-bottom">Inovação</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dev</span> 
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Tecnologia</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Engenharia</span> 
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Tech</span> 
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">TI</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Computação</span> 
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Software</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Games</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24"> <br> Muito obrigada, volte sempre! <br> </div>
+
+<!-- fim do conteiner da página -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// modelo de galeria
+function onClick(element) {
+
+    document.getElementById("img01").src = element.src;
+
+    document.getElementById("modal01").style.display = "block";
+
+    document.getElementById("caption").innerHTML = element.alt;
+
+}
+
+</script>
+
+
+</body>
+</html>

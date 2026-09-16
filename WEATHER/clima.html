@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+     
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Clima</title>
+    <link rel="stylesheet" href="clima.css">
+    <title>CLIMA</title>
+</head>
+
+<body>
+<main class="container">
+
+    <h1>Verificar Clima</h1>
+    
+   <!-- Removemos o POST/action do Flask. O JavaScript vai controlar o envio -->
+   <form id="formulario-clima">
+        <!-- Adicionado o id="cidade" para o JS capturar o texto -->
+        <input
+         type="text" 
+         id="cidade"
+         name="cidade"
+         placeholder="Digite a cidade"
+         required
+        >
+        <br>    
+        <br>
+        <button type="submit">
+            Buscar
+        </button>
+        <br>
+    </form>
+
+    <!-- Substituímos o código do Flask por esta área onde o JS vai colocar o resultado ou erro -->
+    <div id="resultado-container"></div>
+
+</main>
+
+    <!-- Link para o arquivo JavaScript que criamos abaixo -->
+    <script src="clima.js"></script>
+</body>
+</html>

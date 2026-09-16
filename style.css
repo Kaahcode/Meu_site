@@ -44,7 +44,7 @@ body, h1, h2, h3, h4, h5 {
 /* ==========================================
    REGRAS ADAPTATIVAS PARA CELULAR (MEDIA QUERY)
    ========================================== */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   /* Diminui o espaçamento gigante do título no celular */
   .w3-sidebar h3 {
     padding-top: 32px;

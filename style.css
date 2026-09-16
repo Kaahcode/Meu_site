@@ -1,44 +1,19 @@
-/* ==========================================
-   AJUSTE DE TAMANHO DAS IMAGENS (RESPONSIVO)
-   ========================================== */
-
-/* 1. Imagem da Seção "Sobre Mim" (Computador) */
-.img-sobre {
+/* Estilo padrão da foto para Computadores */
+.foto-sobre-adaptavel {
   width: 100%;
-  max-width: 500px;    /* Reduzi de 600px para 500px para ficar mais elegante no PC */
-  height: 350px;       /* Mantém uma altura fixa proporcional e bonita */
-  object-fit: cover;   /* Corta a imagem inteligentemente sem distorcer ou amassar */
-  border: 1px solid rgb(72, 64, 64);
-  box-shadow: 3px 3px 8px rgb(43, 40, 40);
-  display: block;
-  margin: 20px auto;   /* Centraliza na tela */
+  max-width: 500px; /* Limita o tamanho máximo para não esticar no monitor */
+  height: auto;      /* Mantém a proporção real para não amassar a imagem */
+  border: 1px solid rgb(72, 64, 64); 
+  box-shadow: 3px 3px 8px rgb(43, 40, 40); 
+  margin: 15px 0;
+  display: inline-block;
 }
 
-/* 2. Grade de Fotos de Projetos (Geral) */
-.w3-third img {
-  width: 100%;
-  height: 220px;       /* Altura padronizada para todas as fotos ficarem alinhadas */
-  object-fit: cover;   /* Evita que as fotos dos projetos fiquem esticadas */
-  border: 2px solid rgb(131, 127, 127);
-  box-shadow: 2px 3px 3px rgb(43, 40, 40);
-}
-
-/* ==========================================
-   REGRAS EXCLUSIVAS PARA O CELULAR (Telas pequenas)
-   ========================================== */
+/* Força o celular a redimensionar sem nenhuma interferência de outras classes */
 @media (max-width: 768px) {
-  
-  /* Faz as fotos dos projetos ocuparem a largura inteira do celular, uma abaixo da outra */
-  .w3-third {
-    width: 100% !important;
-    float: none !important;
-    margin-bottom: 20px; /* Espaço confortável entre um card de projeto e outro */
-  }
-
-  /* Ajusta a foto das montanhas para não estourar e reduzir proporcionalmente no celular */
-  .img-sobre {
-    max-width: 90%;    /* Deixa uma margem de segurança nas laterais do celular */
-    height: 250px;     /* Diminui a altura no celular para não cobrir a tela inteira */
+  .foto-sobre-adaptavel {
+    max-width: 90% !important; /* Obriga a imagem a encolher e deixar margem no celular */
+    height: auto !important;   /* Impede que a altura fique travada em pixels */
   }
 }
 

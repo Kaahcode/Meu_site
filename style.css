@@ -1,24 +1,44 @@
 /* ==========================================
-   AJUSTES PARA O SITE FICAR LINDO NO CELULAR
+   AJUSTE DE TAMANHO DAS IMAGENS (RESPONSIVO)
+   ========================================== */
+
+/* 1. Imagem da Seção "Sobre Mim" (Computador) */
+.img-sobre {
+  width: 100%;
+  max-width: 500px;    /* Reduzi de 600px para 500px para ficar mais elegante no PC */
+  height: 350px;       /* Mantém uma altura fixa proporcional e bonita */
+  object-fit: cover;   /* Corta a imagem inteligentemente sem distorcer ou amassar */
+  border: 1px solid rgb(72, 64, 64);
+  box-shadow: 3px 3px 8px rgb(43, 40, 40);
+  display: block;
+  margin: 20px auto;   /* Centraliza na tela */
+}
+
+/* 2. Grade de Fotos de Projetos (Geral) */
+.w3-third img {
+  width: 100%;
+  height: 220px;       /* Altura padronizada para todas as fotos ficarem alinhadas */
+  object-fit: cover;   /* Evita que as fotos dos projetos fiquem esticadas */
+  border: 2px solid rgb(131, 127, 127);
+  box-shadow: 2px 3px 3px rgb(43, 40, 40);
+}
+
+/* ==========================================
+   REGRAS EXCLUSIVAS PARA O CELULAR (Telas pequenas)
    ========================================== */
 @media (max-width: 768px) {
-  /* 1. Faz as fotos do portfólio ocuparem a tela inteira e ficarem uma embaixo da outra */
+  
+  /* Faz as fotos dos projetos ocuparem a largura inteira do celular, uma abaixo da outra */
   .w3-third {
     width: 100% !important;
-    margin-bottom: 15px;
+    float: none !important;
+    margin-bottom: 20px; /* Espaço confortável entre um card de projeto e outro */
   }
 
-  /* 2. Corrige o tamanho da foto principal das montanhas para não estourar a tela */
-  #about img {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-  }
-
-  /* 3. Ajusta o espaçamento interno do bloco principal no celular */
-  .w3-main {
-    margin-left: 0 !important; /* Remove a margem da barra lateral que fica oculta */
-    padding: 10px;
+  /* Ajusta a foto das montanhas para não estourar e reduzir proporcionalmente no celular */
+  .img-sobre {
+    max-width: 90%;    /* Deixa uma margem de segurança nas laterais do celular */
+    height: 250px;     /* Diminui a altura no celular para não cobrir a tela inteira */
   }
 }
 

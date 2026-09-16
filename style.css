@@ -1,53 +1,473 @@
 /* ==========================================
-   CONFIGURAÇÕES GERAIS E TIPOGRAFIA
-   ========================================== */
-body, h1, h2, h3, h4, h5 { 
-  font-family: "Raleway", sans-serif; 
+   RESET & BASE
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0b0f1f;
+    --bg-card: #101426;
+    --border-color: #20243a;
+    --text-primary: #e6e8f5;
+    --text-secondary: #777e9e;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ==========================================
-   GRID DE FOTOS (PORTFÓLIO)
-   ========================================== */
-.w3-third img { 
-  margin-bottom: -6px; 
-  opacity: 0.8; 
-  cursor: pointer; 
+   HEADER & NAVIGATION
+========================================== */
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(11, 15, 31, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.w3-third img:hover { 
-  opacity: 1; 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.nav nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav nav a:hover {
+    color: var(--accent);
 }
 
 /* ==========================================
-   FOTO DE PERFIL (MENU LATERAL)
-   ========================================== */
-.foto-perfil {
-  width: 160px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto; /* Centraliza naturalmente no menu */
-  display: block;
+   HERO SECTION
+========================================== */
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 3.8rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.button.primary {
+    background: var(--accent);
+    color: white;
+}
+
+.button.primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.button.secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.button.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* ==========================================
-   IMAGEM DA SEÇÃO SOBRE MIM
-   ========================================== */
-.img-sobre {
-  width: %20;        /* Ocupa a largura total disponível no celular */
-  max-width: 600px;   /* No computador, ela trava no tamanho máximo de 600px */
-  height: auto;       /* Mantém a proporção correta e não deforma a imagem */
-  border: 1px solid rgb(72, 64, 64);
-  box-shadow: 3px 3px 8px rgb(43, 40, 40);
+   SECTIONS
+========================================== */
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-title h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
 /* ==========================================
-   REGRAS ADAPTATIVAS PARA CELULAR (MEDIA QUERY)
-   ========================================== */
-@media (max-width: 400px) {
-  /* Diminui o espaçamento gigante do título no celular */
-  .w3-sidebar h3 {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
+   CARDS
+========================================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   HIGHLIGHT SECTION
+========================================== */
+.highlight {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.highlight-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 20px 0;
+}
+
+.highlight-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.highlight-content p {
+    color: var(--text-secondary);
+    max-width: 500px;
+}
+
+/* ==========================================
+   CONTENT (seu código original)
+========================================== */
+.content {
+    max-width: 850px;
+}
+
+.content article {
+    margin-bottom: 70px;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin-bottom: 18px;
+    font-size: 1.15rem;
+}
+
+/* ==========================================
+   DETAIL LIST
+========================================== */
+.detail-list {
+    display: grid;
+    gap: 15px;
+}
+
+.detail-list div {
+    padding: 25px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.detail-list strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.detail-list p {
+    margin: 0;
+}
+
+/* ==========================================
+   FINAL MESSAGE
+========================================== */
+.final-message {
+    padding: 40px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================
+   PROJETOS SECTION
+========================================== */
+#projetos {
+    background: linear-gradient(to bottom, transparent, rgba(16, 20, 38, 0.5));
+}
+
+#projetos .w3-ul {
+    background: var(--bg-card !important);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+}
+
+#projetos .w3-padding-16 {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+#projetos a {
+    color: var(--text-primary) !important;
+    font-size: 1.05rem;
+    transition: color 0.2s ease;
+}
+
+#projetos a:hover {
+    color: var(--accent) !important;
+}
+
+/* ==========================================
+   CONTATO SECTION
+========================================== */
+#contato {
+    background: var(--bg-dark) !important;
+}
+
+#contato h4 {
+    font-size: 1.8rem !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 30px !important;
+}
+
+#contato label {
+    color: var(--text-primary) !important;
+}
+
+#contato input,
+#contato textarea {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 6px !important;
+}
+
+#contato input:focus,
+#contato textarea:focus {
+    outline: none;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+#contato button {
+    background: var(--accent) !important;
+    border: none !important;
+    border-radius: 6px !important;
+    transition: background 0.3s ease !important;
+}
+
+#contato button:hover {
+    background: var(--accent-hover) !important;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+.footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.w3-grey {
+    background: var(--bg-card) !important;
+    border-top: 1px solid var(--border-color);
+}
+
+.w3-grey h3 {
+    color: var(--text-primary) !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 20px !important;
+}
+
+.w3-ul li {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.w3-tag {
+    background: var(--accent) !important;
+}
+
+.w3-dark-grey {
+    background: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.w3-black {
+    background: #080b18 !important;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .nav nav {
+        gap: 20px;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-content {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .highlight-content > div {
+        width: 100%;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .w3-third {
+        width: 100% !important;
+        margin-bottom: 40px !important;
+    }
 }

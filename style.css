@@ -1,53 +1,24 @@
 /* ==========================================
-   CONFIGURAÇÕES GERAIS E TIPOGRAFIA
-   ========================================== */
-body, h1, h2, h3, h4, h5 { 
-  font-family: "Raleway", sans-serif; 
-}
-
-/* ==========================================
-   GRID DE FOTOS (PORTFÓLIO)
-   ========================================== */
-.w3-third img { 
-  margin-bottom: -6px; 
-  opacity: 0.8; 
-  cursor: pointer; 
-}
-
-.w3-third img:hover { 
-  opacity: 1; 
-}
-
-/* ==========================================
-   FOTO DE PERFIL (MENU LATERAL)
-   ========================================== */
-.foto-perfil {
-  width: 160px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto; /* Centraliza naturalmente no menu */
-  display: block;
-}
-
-/* ==========================================
-   IMAGEM DA SEÇÃO SOBRE MIM
-   ========================================== */
-.img-sobre {
-  width: 100%;        /* Ocupa a largura total disponível no celular */
-  max-width: 600px;   /* No computador, ela trava no tamanho máximo de 600px */
-  height: auto;       /* Mantém a proporção correta e não deforma a imagem */
-  border: 1px solid rgb(72, 64, 64);
-  box-shadow: 3px 3px 8px rgb(43, 40, 40);
-}
-
-/* ==========================================
-   REGRAS ADAPTATIVAS PARA CELULAR (MEDIA QUERY)
+   AJUSTES PARA O SITE FICAR LINDO NO CELULAR
    ========================================== */
 @media (max-width: 768px) {
-  /* Diminui o espaçamento gigante do título no celular */
-  .w3-sidebar h3 {
-    padding-top: 32px;
-    padding-bottom: 32px;
+  /* 1. Faz as fotos do portfólio ocuparem a tela inteira e ficarem uma embaixo da outra */
+  .w3-third {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+
+  /* 2. Corrige o tamanho da foto principal das montanhas para não estourar a tela */
+  #about img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Ajusta o espaçamento interno do bloco principal no celular */
+  .w3-main {
+    margin-left: 0 !important; /* Remove a margem da barra lateral que fica oculta */
+    padding: 10px;
   }
 }
+

@@ -1,6 +1,5 @@
-// ==========================================
-// CLASSES (IGUAL AO SEU CÓDIGO PYTHON)
-// ==========================================
+
+// Classe 
 
 class Despesa {
     constructor(descricao, categoria, valor) {
@@ -19,6 +18,7 @@ class ControleDespesa {
 
     adicionar_despesa(despesa) {
         this.despesas.push(despesa);
+
         // Salva na memória do navegador toda vez que adiciona uma nova
         localStorage.setItem("despesas_salvas", JSON.stringify(this.despesas));
     }
@@ -35,10 +35,7 @@ class ControleDespesa {
 // Cria o gerenciador de despesas
 const controleDespesas = new ControleDespesa();
 
-// ==========================================
-// CONTROLE DOS EVENTOS DA TELA
-// ==========================================
-
+// Controle de tela
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formulario-despesa");
     const containerMensagem = document.getElementById("mensagem-container");
@@ -50,14 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (formulario) {
         formulario.addEventListener("submit", (event) => {
+
             // Impede a página de recarregar e sumir com os dados
             event.preventDefault();
 
-            // Captura os valores dos inputs do seu HTML
+            // Capturar os valores dos inputs do HTML
             const descricao = document.getElementById("descricao").value.trim();
             const categoria = document.getElementById("categoria").value.trim();
-            
-            // Faz o tratamento idêntico ao seu .replace(",", ".") do Python
+
+            // Tratamento (",", ".")
             const valorTexto = document.getElementById("valor").value.replace(",", ".");
             const valor = parseFloat(valorTexto);
 
@@ -67,17 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Instancia e adiciona à lista através da classe
+            // Instanciar e adiciona à lista através da classe
             const novaDespesa = new Despesa(descricao, categoria, valor);
             controleDespesas.adicionar_despesa(novaDespesa);
 
-            // Exibe a mensagem de sucesso na tela
+            // Exibir a mensagem de sucesso na tela
             containerMensagem.innerHTML = "<p style='color: green; font-weight: bold;'>Despesa cadastrada com sucesso!</p>";
 
-            // Limpa as caixas de texto para você digitar a próxima
+            // Limpar as caixas de texto para próxima digitação
             formulario.reset();
 
-            // Atualiza a lista visual na tela imediatamente
+            // Atualizar a lista visual na tela imediatamente
             atualizarTela(containerLista, containerTotal);
         });
     }

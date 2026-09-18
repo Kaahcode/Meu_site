@@ -1,122 +1,688 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet"
+        href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- Fonte -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Cadastre-se</title>
-    <link rel="stylesheet" href="cadastro-login.css">
+
+    <style>
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        #main {
+            margin-left: 120px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0;
+            }
+        }
+
+        /* Área do cadastro */
+
+        .cadastro-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .cadastro-container input,
+        .cadastro-container select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .input-nome {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-senha-confirmar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .select-data {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .campo-data select {
+            width: 100%;
+        }
+
+        .cadastro-container button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #mensagem-container {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .input-nome,
+            .input-senha-confirmar,
+            .select-data {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
-<body>
 
-<main class="container">
-    <!-- Removido o action do Flask. Adicionado id="formulario-cadastro" -->
-    <form id="formulario-cadastro" class="main">
 
-        <h1>Cadastre-se</h1>
+<body class="w3-black">
 
-        <!-- NOME E SOBRENOME -->
-        <div class="input-nome">
-            <!-- Adicionado id="nome" -->
-            <input type="text" id="nome" name="nome" placeholder="Nome:" required>
-            <!-- Adicionado id="sobrenome" -->
-            <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome:" required>
+
+    <!-- MENU LATERAL -->
+
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+
+
+        <a href="#inicio"
+            class="w3-bar-item w3-button w3-padding-large w3-black">
+
+            <i class="fa fa-home w3-xxlarge"></i>
+
+            <p>INÍCIO</p>
+
+        </a>
+
+
+        <a href="#cadastro"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-user-plus w3-xxlarge"></i>
+
+            <p>CADASTRO</p>
+
+        </a>
+
+
+        <a href="login.html"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-sign-in w3-xxlarge"></i>
+
+            <p>LOGIN</p>
+
+        </a>
+
+
+        <a href="#contato"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-envelope w3-xxlarge"></i>
+
+            <p>CONTATO</p>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- MENU PARA CELULAR -->
+
+    <div class="w3-top w3-hide-large w3-hide-medium">
+
+        <div class="w3-bar w3-black w3-center w3-small">
+
+
+            <a href="#inicio"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                INÍCIO
+            </a>
+
+
+            <a href="#cadastro"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                CADASTRO
+            </a>
+
+
+            <a href="login.html"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                LOGIN
+            </a>
+
+
+            <a href="#contato"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                CONTATO
+            </a>
+
+
         </div>
 
-        <!-- E-MAIL -->
-        <div class="input-box">
-            <!-- Adicionado id="email" -->
-            <input type="email" id="email" name="email" placeholder="E-mail:" required>
-        </div>
+    </div>
 
-        <!-- SENHA -->
-        <div class="input-box input-senha-confirmar">
-            <!-- Adicionado id="password" -->
-            <input type="password" id="password" name="password" placeholder="Senha:" required>
-            <!-- Adicionado id="confirmar_senha" -->
-            <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirmar senha:" required>
-        </div>
 
-        <br>
-        <!-- DATA DE NASCIMENTO -->
-        <section class="data-nascimento">
-            <h2>Data de nascimento</h2>
-            
-            <div class="select-data">
-                <!-- DIA -->
-                <div class="campo-data">
-                    <label for="dia">Dia</label>
-                    <select name="dia" id="dia" required>
-                        <option value="">Dia</option>
-                        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-                        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
-                        <option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                        <option value="13">13</option><option value="14">14</option><option value="15">15</option>
-                        <option value="16">16</option><option value="17">17</option><option value="18">18</option>
-                        <option value="19">19</option><option value="20">20</option><option value="21">21</option>
-                        <option value="22">22</option><option value="23">23</option><option value="24">24</option>
-                        <option value="25">25</option><option value="26">26</option><option value="27">27</option>
-                        <option value="28">28</option><option value="29">29</option><option value="30">30</option>
-                        <option value="31">31</option>
-                    </select>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <div class="w3-padding-large" id="main">
+
+
+        <!-- INÍCIO -->
+
+        <header
+            class="w3-container w3-padding-64 w3-center"
+            id="inicio">
+
+
+            <h1 class="w3-jumbo">
+                Crie sua conta
+            </h1>
+
+
+            <p>
+                Preencha seus dados para realizar o cadastro.
+            </p>
+
+
+            <i class="fa fa-user-plus w3-jumbo"></i>
+
+
+        </header>
+
+
+
+        <!-- CADASTRO -->
+
+        <div
+            class="w3-content w3-padding-64 cadastro-container"
+            id="cadastro">
+
+
+            <h2 class="w3-text-light-grey">
+                Cadastre-se
+            </h2>
+
+
+            <hr
+                style="width:200px"
+                class="w3-opacity">
+
+
+
+            <!-- FORMULÁRIO -->
+
+            <form
+                id="formulario-cadastro"
+                class="main">
+
+
+                <!-- NOME E SOBRENOME -->
+
+                <h6>
+                    Nome e sobrenome
+                </h6>
+
+
+                <div class="input-nome">
+
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Nome"
+                        required
+                    >
+
+
+                    <input
+                        type="text"
+                        id="sobrenome"
+                        name="sobrenome"
+                        placeholder="Sobrenome"
+                        required
+                    >
+
+
                 </div>
 
-                <!-- MÊS -->
-                <div class="campo-data">
-                    <label for="mes">Mês</label>
-                    <select name="mes" id="mes" required>
-                        <option value="">Mês</option>
-                        <option value="1">Janeiro</option><option value="2">Fevereiro</option>
-                        <option value="3">Março</option><option value="4">Abril</option>
-                        <option value="5">Maio</option><option value="6">Junho</option>
-                        <option value="7">Julho</option><option value="8">Agosto</option>
-                        <option value="9">Setembro</option><option value="10">Outubro</option>
-                        <option value="11">Novembro</option><option value="12">Dezembro</option>
-                    </select>
+
+
+                <!-- E-MAIL -->
+
+                <h6>
+                    E-mail
+                </h6>
+
+
+                <div class="input-box">
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="E-mail"
+                        required
+                    >
+
+
                 </div>
 
-                <!-- ANO -->
-                <div class="campo-data">
-                    <label for="ano">Ano</label>
-                    <select name="ano" id="ano" required>
-                        <option value="">Ano</option>
-                        <option value="2026">2026</option><option value="2025">2025</option>
-                        <option value="2024">2024</option><option value="2023">2023</option>
-                        <option value="2022">2022</option><option value="2021">2021</option>
-                        <option value="2020">2020</option><option value="2019">2019</option>
-                        <option value="1999">1999</option><option value="1998">1998</option>
-                        <option value="1997">1997</option><option value="1996">1996</option>
-                        <option value="1995">1995</option>
-                    </select>
+
+
+                <!-- SENHA -->
+
+                <h6>
+                    Senha
+                </h6>
+
+
+                <div class="input-senha-confirmar">
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Senha"
+                        required
+                    >
+
+
+                    <input
+                        type="password"
+                        id="confirmar_senha"
+                        name="confirmar_senha"
+                        placeholder="Confirmar senha"
+                        required
+                    >
+
+
                 </div>
+
+
+
+                <!-- DATA DE NASCIMENTO -->
+
+                <section class="data-nascimento">
+
+
+                    <h3 class="w3-text-light-grey">
+                        Data de nascimento
+                    </h3>
+
+
+                    <div class="select-data">
+
+
+                        <!-- DIA -->
+
+                        <div class="campo-data">
+
+
+                            <label for="dia">
+                                Dia
+                            </label>
+
+
+                            <select
+                                name="dia"
+                                id="dia"
+                                required>
+
+
+                                <option value="">
+                                    Dia
+                                </option>
+
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+                        <!-- MÊS -->
+
+                        <div class="campo-data">
+
+
+                            <label for="mes">
+                                Mês
+                            </label>
+
+
+                            <select
+                                name="mes"
+                                id="mes"
+                                required>
+
+
+                                <option value="">
+                                    Mês
+                                </option>
+
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+
+                        <!-- ANO -->
+
+                        <div class="campo-data">
+
+
+                            <label for="ano">
+                                Ano
+                            </label>
+
+
+                            <select
+                                name="ano"
+                                id="ano"
+                                required>
+
+
+                                <option value="">
+                                    Ano
+                                </option>
+
+                                <option value="2026">2026</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="1999">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+
+
+                            </select>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- GÊNERO -->
+
+                <h6>
+                    Gênero
+                </h6>
+
+
+                <div class="campo-data">
+
+
+                    <label for="genero">
+                        Selecione o gênero
+                    </label>
+
+
+                    <select
+                        name="genero"
+                        id="genero"
+                        required>
+
+
+                        <option value="">
+                            Selecione o gênero
+                        </option>
+
+                        <option value="Feminino">
+                            Feminino
+                        </option>
+
+                        <option value="Masculino">
+                            Masculino
+                        </option>
+
+                        <option value="Outro">
+                            Outro
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="submit"
+                    class="w3-button w3-light-grey w3-padding-large">
+
+
+                    <i class="fa fa-user-plus"></i>
+
+                    Cadastrar
+
+
+                </button>
+
+
+
+                <!-- MENSAGEM -->
+
+                <div
+                    id="mensagem-container"
+                    style="margin-top: 15px; font-weight: bold; text-align: center;">
+
+
+                </div>
+
+
+
+            </form>
+
+
+
+            <!-- LINK PARA LOGIN -->
+
+            <div class="login-link">
+
+
+                <p>
+
+                    Já tem uma conta?
+
+                    <a href="login.html">
+                        Faça login
+                    </a>
+
+                </p>
+
+
             </div>
-        </section>
 
-        <!-- GÊNERO -->
-        <br>
-        <div class="campo-data" style="display: block;">
-            <label for="genero">Gênero</label>
-            <select name="genero" id="genero" required style="width: 100%; padding: 5px;">
-                <option value="">Selecione o gênero</option>
-                <option value="Feminino">Feminino</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Outro">Outro</option>
-            </select>
+
         </div>
 
-        <br><br>
-        <button type="submit">Cadastrar</button>
-    </form>
 
-    <!-- Área onde o JS vai colocar as mensagens de erro ou sucesso -->
-    <div id="mensagem-container" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
 
-    <p style="text-align: center; margin-top: 15px;">
-        Já tem uma conta? <a href="login.html">Faça login</a>
-    </p>
-</main>
+        <!-- CONTATO -->
 
-    <!-- Vincula o arquivo JavaScript de cadastro criado abaixo -->
+        <div
+            class="w3-content w3-padding-64 w3-text-grey"
+            id="contato">
+
+
+            <h2 class="w3-text-light-grey">
+                Contato
+            </h2>
+
+
+            <hr
+                style="width:200px"
+                class="w3-opacity">
+
+
+            <p>
+                Entre em contato para mais informações.
+            </p>
+
+
+            <p>
+
+                <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge"></i>
+
+                Email: contato@exemplo.com
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- RODAPÉ -->
+
+        <footer
+            class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+
+
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+
+            <p class="w3-medium">
+
+                Cadastro de Usuários
+
+            </p>
+
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="cadastro.js"></script>
+
+
 </body>
+
 </html>

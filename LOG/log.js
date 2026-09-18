@@ -1,13 +1,10 @@
-// ==========================================
-// CONFIGURAÇÃO DO "BANCO DE DADOS" (Navegador)
-// ==========================================
+
+// Configuração bancos de dados ()
 
 // Puxa a lista de contas que simula a tabela 'accounts' do MySQL, ou cria uma vazia []
 let accountsDB = JSON.parse(localStorage.getItem("accounts_mysql_simulation")) || [];
 
-// ==========================================
-// EVENTO AO CARREGAR A PÁGINA
-// ==========================================
+// Carregar página
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -16,14 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const formularioLogin = document.getElementById("formulario-login");
     const containerMensagem = document.getElementById("mensagem-container");
 
-    // ==========================================
-    // 1. ROTA DE CADASTRO (/cadastre)
-    // ==========================================
+    //Cadastro
+
     if (formularioCadastro) {
         formularioCadastro.addEventListener("submit", (event) => {
             event.preventDefault(); // Impede a página de recarregar
 
-            // RECEBE OS DADOS DO HTML (Igual ao seu request.form.get)
+            // Receber dados
             const nome = document.getElementById("nome").value.trim();
             const sobrenome = document.getElementById("sobrenome").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -34,26 +30,26 @@ document.addEventListener("DOMContentLoaded", () => {
             const ano = document.getElementById("ano").value;
             const genero = document.getElementById("genero").value;
 
-            // VERIFICA SE TODOS OS CAMPOS FORAM PREENCHIDOS
+            // Verificar campos recebidos
             if (!nome || !sobrenome || !email || !password || !confirmar_senha || !dia || !mes || !ano || !genero) {
                 containerMensagem.innerHTML = "<p style='color: red;'>Preencha todos os campos!</p>";
                 return;
             }
 
-            // VERIFICA AS SENHAS (elif password != confirmar_senha:)
+            // Verificar senha
             if (password !== confirmar_senha) {
                 containerMensagem.innerHTML = "<p style='color: red;'>As senhas não são iguais!</p>";
                 return;
             }
 
-            // VERIFICA O E-MAIL (elif not re.match(...))
+            // verificar email
             const emailRegex = /[^@]+@[^@]+\.[^@]+/;
             if (!emailRegex.test(email)) {
                 containerMensagem.innerHTML = "<p style='color: red;'>E-mail inválido!</p>";
                 return;
             }
 
-            // JUNTA A DATA (f'{ano}-{mes.zfill(2)}-{dia.zfill(2)}')
+            //Juntar datas
             const diaFormatado = dia.padStart(2, '0');
             const mesFormatado = mes.padStart(2, '0');
             const data_nascimento = `${ano}-${mesFormatado}-${diaFormatado}`;
@@ -61,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Puxa o banco atualizado antes de testar se já existe
             accountsDB = JSON.parse(localStorage.getItem("accounts_mysql_simulation")) || [];
 
-            // VERIFICA SE O E-MAIL JÁ FOI CADASTRADO (SELECT * FROM accounts)
+            // Verificar email cadastrado
             const accountExists = accountsDB.some(account => account.email === email);
 
             if (accountExists) {
@@ -69,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // SALVA OS DADOS (INSERT INTO accounts)
+            // Salvar dados
             const novaConta = {
                 id: accountsDB.length + 1, // Gera um ID incremental fictício
                 nome: nome,
@@ -89,32 +85,31 @@ document.addEventListener("DOMContentLoaded", () => {
             formularioCadastro.reset();
             containerMensagem.innerHTML = "<p style='color: green; font-weight: bold;'>Cadastrado com sucesso! Redirecionando...</p>";
 
-            // ENVIA PARA O LOGIN (return redirect(url_for('login')))
+            // Return login
             setTimeout(() => {
                 window.location.href = "login.html";
             }, 2000);
         });
     }
-
-    // ==========================================
-    // 2. ROTA DE LOGIN (/login)
-    // ==========================================
+   
+    // Rota login
+   
     if (formularioLogin) {
         formularioLogin.addEventListener("submit", (event) => {
             event.preventDefault(); // Impede a página de recarregar
 
-            // RECEBE OS DADOS DO FORMULÁRIO DE LOGIN
+            // Recaber dados
             const usernameDigitado = document.getElementById("username").value.trim();
             const passwordDigitada = document.getElementById("password").value;
 
             // Puxa o banco de dados atualizado do navegador
             accountsDB = JSON.parse(localStorage.getItem("accounts_mysql_simulation")) || [];
 
-            // BUSCA SE O USUÁRIO E SENHA COINCIDEM (SELECT * FROM accounts WHERE username = %s AND password = %s)
+            // Buscar usuário
             const account = accountsDB.find(user => user.username === usernameDigitado && user.password === passwordDigitada);
 
             if (account) {
-                // DEFINE OS DADOS NA SESSÃO (session['loggedin'] = True ...)
+                // Definir dados
                 const sessionData = {
                     loggedin: true,
                     id: account.id,
@@ -140,10 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ==========================================
-// 3. ROTA DE LOGOUT (/logout)
-// ==========================================
+// Rota logout
+
 window.logout = function() {
+
     // Limpa os dados da sessão (session.pop(...))
     localStorage.removeItem("app_session");
     

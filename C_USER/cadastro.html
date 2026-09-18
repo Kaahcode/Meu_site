@@ -1,103 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- Fonte -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Cadastro de Usuários</title>
-    <!-- Link do CSS ajustado para o padrão do GitHub Pages -->
-    <link rel="stylesheet" href="cadastro.css">
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        #main {
+            margin-left: 120px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0;
+            }
+        }
+
+        /* Área do cadastro */
+        .cadastro-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cadastro-container input,
+        .cadastro-container select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .cadastro-container button {
+            margin-top: 10px;
+        }
+
+        #mensagem-container {
+            margin-top: 20px;
+        }
+
+        #lista-usuarios-container {
+            margin-top: 20px;
+        }
+    </style>
+
 </head>
-<body>
 
-     <main class="container">
 
-    <h1>Cadastro de Usuários</h1>
+<body class="w3-black">
 
-    <!-- Adicionado o id="formulario-cadastro" para o JS capturar o envio -->
-    <form id="formulario-cadastro">
 
-        <!-- Adicionado id="nome" -->
-        <input
-            type="text"
-            id="nome"
-            name="nome"
-            placeholder="Digite seu nome"
-            required
-        >
+    <!-- MENU LATERAL -->
 
-        <br><br>
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
 
-        <!-- Adicionado id="idade" -->
-        <input
-            type="number"
-            id="idade"
-            name="idade"
-            placeholder="Digite sua idade"
-            required
-        >
+        <a href="#inicio" class="w3-bar-item w3-button w3-padding-large w3-black">
 
-        <br><br>
+            <i class="fa fa-home w3-xxlarge"></i>
 
-        <!-- Adicionado id="cpf" -->
-        <input
-            type="text"
-            id="cpf"
-            name="cpf"
-            placeholder="Digite seu cpf"
-            required
-        >
+            <p>INÍCIO</p>
 
-        <br><br>
+        </a>
 
-        <!-- Adicionado id="telefone" -->
-        <input
-            type="text"
-            id="telefone"
-            name="telefone"
-            placeholder="Digite seu telefone"
-            required
-        >
 
-        <br><br>
+        <a href="#cadastro" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
 
-        <!-- Adicionado id="genero" -->
-        <select id="genero" name="genero" required>
-            <option value="">
-                Selecione o gênero
-            </option>
-            <option value="Feminino">
-                Feminino
-            </option>
-            <option value="Masculino">
-                Masculino
-            </option>
-            <option value="Outro">
-                Outro
-            </option>
-        </select>
+            <i class="fa fa-user-plus w3-xxlarge"></i>
 
-        <br><br>
+            <p>CADASTRO</p>
 
-        <button type="submit">
-            Cadastrar
-        </button>
+        </a>
 
-    </form>
 
-    <!-- Área onde o JS vai colocar a mensagem de "Cadastrado com sucesso!" -->
-    <div id="mensagem-container"></div>
+        <a href="#usuarios" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
 
-    <br>
-    <hr>
-    <br>
-    
-    <h2>Usuários cadastrados</h2>
+            <i class="fa fa-users w3-xxlarge"></i>
 
-    <!-- Esta área (div) vai receber os blocos de usuários criados pelo JS -->
-    <div id="lista-usuarios-container">
-        <p>Nenhum usuário cadastrado.</p>
+            <p>USUÁRIOS</p>
+
+        </a>
+
+
+        <a href="#contato" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-envelope w3-xxlarge"></i>
+
+            <p>CONTATO</p>
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- MENU PARA CELULAR -->
+
+    <div class="w3-top w3-hide-large w3-hide-medium">
+
+        <div class="w3-bar w3-black w3-center w3-small">
+
+            <a href="#inicio" class="w3-bar-item w3-button" style="width:25%">
+                INÍCIO
+            </a>
+
+            <a href="#cadastro" class="w3-bar-item w3-button" style="width:25%">
+                CADASTRO
+            </a>
+
+            <a href="#usuarios" class="w3-bar-item w3-button" style="width:25%">
+                USUÁRIOS
+            </a>
+
+            <a href="#contato" class="w3-bar-item w3-button" style="width:25%">
+                CONTATO
+            </a>
+
+        </div>
+
     </div>
 
-    <!-- Vincula o arquivo JavaScript abaixo -->
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <div class="w3-padding-large" id="main">
+
+
+        <!-- INÍCIO -->
+
+        <header class="w3-container w3-padding-64 w3-center" id="inicio">
+
+            <h1 class="w3-jumbo">
+                Cadastro de Usuários
+            </h1>
+
+            <p>
+                Cadastre e organize os usuários do sistema.
+            </p>
+
+            <i class="fa fa-users w3-jumbo"></i>
+
+        </header>
+
+
+
+        <!-- CADASTRO -->
+
+        <div class="w3-content w3-padding-64 cadastro-container" id="cadastro">
+
+            <h2 class="w3-text-light-grey">
+                Cadastro de Usuários
+            </h2>
+
+            <hr style="width:250px" class="w3-opacity">
+
+
+            <!-- FORMULÁRIO -->
+
+            <form id="formulario-cadastro">
+
+
+                <!-- NOME -->
+
+                <h6>
+                    Nome
+                </h6>
+
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+
+
+                <!-- IDADE -->
+
+                <h6>
+                    Idade
+                </h6>
+
+                <input type="number" id="idade" name="idade" placeholder="Digite sua idade" required>
+
+
+
+                <!-- CPF -->
+
+                <h6>
+                    CPF
+                </h6>
+
+                <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+
+
+
+                <!-- TELEFONE -->
+
+                <h6>
+                    Telefone
+                </h6>
+
+                <input type="text" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+
+
+
+                <!-- GÊNERO -->
+
+                <h6>
+                    Gênero
+                </h6>
+
+                <select id="genero" name="genero" required>
+
+                    <option value="">
+                        Selecione o gênero
+                    </option>
+
+                    <option value="Feminino">
+                        Feminino
+                    </option>
+
+                    <option value="Masculino">
+                        Masculino
+                    </option>
+
+                    <option value="Outro">
+                        Outro
+                    </option>
+
+                </select>
+
+
+
+                <br>
+
+
+                <!-- BOTÃO -->
+
+                <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+
+                    <i class="fa fa-user-plus"></i>
+
+                    Cadastrar
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- MENSAGEM -->
+
+            <div id="mensagem-container"></div>
+
+
+        </div>
+
+
+
+        <!-- LISTA DE USUÁRIOS -->
+
+        <div class="w3-content w3-padding-64" id="usuarios">
+
+            <h2 class="w3-text-light-grey">
+                Usuários cadastrados
+            </h2>
+
+            <hr style="width:250px" class="w3-opacity">
+
+
+            <div id="lista-usuarios-container">
+
+                <p>
+                    Nenhum usuário cadastrado.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTATO -->
+
+        <div class="w3-content w3-padding-64 w3-text-grey" id="contato">
+
+            <h2 class="w3-text-light-grey">
+                Contato
+            </h2>
+
+            <hr style="width:200px" class="w3-opacity">
+
+
+            <p>
+                Entre em contato para mais informações.
+            </p>
+
+
+            <p>
+
+                <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge"></i>
+
+                Email: contato@exemplo.com
+
+            </p>
+
+        </div>
+
+
+
+        <!-- RODAPÉ -->
+
+        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+
+            <p class="w3-medium">
+
+                Cadastro de Usuários
+
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="user.js"></script>
+
+
 </body>
+
 </html>

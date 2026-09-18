@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resultadoContainer.innerHTML = "<p>Buscando clima...</p>";
 
-            // 1. LINK CORRIGIDO DEFINITIVAMENTE (VEJA A SINTAXE ABAIXO)
+            // Link corrigido
            const link = `https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${API_KEY}&units=metric&lang=pt_br`;
             try {
                 const resposta = await fetch(link);
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const dados = await resposta.json();
                     
                     const temperatura = dados.main.temp;
-                    // 2. ACESSO AO ARRAY CORRIGIDO (dados.weather[0])
+                    // Acessar o Array
                     const descricao = dados.weather[0].description; 
 
                     resultadoContainer.innerHTML = `
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     resultadoContainer.innerHTML = `<p style="color: red; margin-top: 20px;">Cidade não encontrada (Erro ${resposta.status})</p>`;
                 }
             } catch (error) {
-                // Exibe o erro real no console para ajudar no diagnóstico
+                // Exibir erro 
                 console.error("Erro interno:", error);
                 resultadoContainer.innerHTML = `<p style="color: red; margin-top: 20px;">Erro ao conectar com o serviço de clima.</p>`;
             }

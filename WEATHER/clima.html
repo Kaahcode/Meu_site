@@ -1,43 +1,372 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-     
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Clima</title>
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet"
+        href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- Fonte -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Seu CSS -->
     <link rel="stylesheet" href="clima.css">
-    <title>CLIMA</title>
+
+    <title>Consulta de Clima</title>
+
+    <style>
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        #main {
+            margin-left: 120px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0;
+            }
+        }
+
+        /* Área do clima */
+        .clima-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .clima-container input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: none;
+        }
+
+        .clima-container button {
+            margin-top: 10px;
+        }
+
+        #resultado-container {
+            margin-top: 30px;
+        }
+
+    </style>
+
 </head>
 
-<body>
-<main class="container">
 
-    <h1>Verificar Clima</h1>
-    
-   <!-- Removemos o POST/action do Flask. O JavaScript vai controlar o envio -->
-   <form id="formulario-clima">
-        <!-- Adicionado o id="cidade" para o JS capturar o texto -->
-        <input
-         type="text" 
-         id="cidade"
-         name="cidade"
-         placeholder="Digite a cidade"
-         required
-        >
-        <br>    
-        <br>
-        <button type="submit">
-            Buscar
-        </button>
-        <br>
-    </form>
+<body class="w3-black">
 
-    <!-- Substituímos o código do Flask por esta área onde o JS vai colocar o resultado ou erro -->
-    <div id="resultado-container"></div>
 
-</main>
+    <!-- MENU LATERAL -->
 
-    <!-- Link para o arquivo JavaScript que criamos abaixo -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+
+
+        <a href="#inicio"
+            class="w3-bar-item w3-button w3-padding-large w3-black">
+
+            <i class="fa fa-home w3-xxlarge"></i>
+
+            <p>INÍCIO</p>
+
+        </a>
+
+
+        <a href="#clima"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-cloud w3-xxlarge"></i>
+
+            <p>CLIMA</p>
+
+        </a>
+
+
+        <a href="#sobre"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-info-circle w3-xxlarge"></i>
+
+            <p>SOBRE</p>
+
+        </a>
+
+
+        <a href="#contato"
+            class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+
+            <i class="fa fa-envelope w3-xxlarge"></i>
+
+            <p>CONTATO</p>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- MENU PARA CELULAR -->
+
+    <div class="w3-top w3-hide-large w3-hide-medium">
+
+        <div class="w3-bar w3-black w3-center w3-small">
+
+
+            <a href="#inicio"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                INÍCIO
+            </a>
+
+
+            <a href="#clima"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                CLIMA
+            </a>
+
+
+            <a href="#sobre"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                SOBRE
+            </a>
+
+
+            <a href="#contato"
+                class="w3-bar-item w3-button"
+                style="width:25%">
+                CONTATO
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <div class="w3-padding-large" id="main">
+
+
+        <!-- INÍCIO -->
+
+        <header
+            class="w3-container w3-padding-64 w3-center"
+            id="inicio">
+
+
+            <h1 class="w3-jumbo">
+                Consulta de Clima
+            </h1>
+
+
+            <p>
+                Consulte o clima de qualquer cidade.
+            </p>
+
+
+            <i class="fa fa-cloud w3-jumbo"></i>
+
+
+        </header>
+
+
+
+        <!-- CONSULTA DE CLIMA -->
+
+        <div
+            class="w3-content w3-padding-64 clima-container"
+            id="clima">
+
+
+            <h2 class="w3-text-light-grey">
+                Verificar Clima
+            </h2>
+
+
+            <hr
+                style="width:250px"
+                class="w3-opacity">
+
+
+
+            <!-- FORMULÁRIO -->
+
+            <form id="formulario-clima">
+
+
+                <h6>
+                    Digite o nome da cidade
+                </h6>
+
+
+                <input
+                    type="text"
+                    id="cidade"
+                    name="cidade"
+                    placeholder="Digite a cidade"
+                    required
+                >
+
+
+                <br>
+
+
+                <button
+                    class="w3-button w3-light-grey w3-padding-large"
+                    type="submit">
+
+
+                    <i class="fa fa-search"></i>
+
+                    Buscar
+
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- RESULTADO DO CLIMA -->
+
+            <div id="resultado-container">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SOBRE -->
+
+        <div
+            class="w3-content w3-padding-64"
+            id="sobre">
+
+
+            <h2 class="w3-text-light-grey">
+                Sobre o projeto
+            </h2>
+
+
+            <hr
+                style="width:200px"
+                class="w3-opacity">
+
+
+            <p class="w3-text-grey">
+
+                Este projeto permite consultar informações
+                sobre o clima de uma cidade utilizando
+                JavaScript e uma API de clima.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- CONTATO -->
+
+        <div
+            class="w3-content w3-padding-64 w3-text-grey"
+            id="contato">
+
+
+            <h2 class="w3-text-light-grey">
+                Contato
+            </h2>
+
+
+            <hr
+                style="width:200px"
+                class="w3-opacity">
+
+
+            <p>
+                Entre em contato para mais informações.
+            </p>
+
+
+            <p>
+
+                <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge"></i>
+
+                Email: contato@exemplo.com
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- RODAPÉ -->
+
+        <footer
+            class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+
+
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+
+            <p class="w3-medium">
+
+                Consulta de Clima
+
+            </p>
+
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
     <script src="clima.js"></script>
+
+
 </body>
+
 </html>

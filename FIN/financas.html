@@ -1,79 +1,319 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <!-- Ajustado o link do CSS para o padrão do GitHub Pages -->
-    <link rel="stylesheet" href="financas.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- Fonte -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- Ícones -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Seu CSS -->
+    <link rel="stylesheet" href="finanças.css">
+
     <title>Controle Financeiro</title>
+
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .w3-sidebar {
+            width: 120px;
+            background: #222;
+        }
+
+        #main {
+            margin-left: 120px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #main {
+                margin-left: 0;
+            }
+        }
+
+        /* Área do controle financeiro */
+        .controle-financeiro {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .controle-financeiro input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .controle-financeiro button {
+            margin: 5px;
+        }
+
+        #mensagem-container {
+            margin-top: 20px;
+        }
+
+        #lista-despesas-container {
+            margin-top: 20px;
+        }
+
+        #total-container {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
-    <main class="container">
 
-    <h1>Controle Financeiro</h1>
-    
-   <!-- Removemos o POST/action do Flask. O id="formulario-despesa" foi adicionado -->
-   <form id="formulario-despesa">
+<body class="w3-black">
 
-    <h6>Qual a descrição do produto?</h6>
-    <!-- Adicionado id="descricao" -->
-    <input
-    type="text" 
-    id="descricao"
-    name="descricao"
-    placeholder="Descrição"
-    required
-    >
+    <!-- MENU LATERAL -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
 
-    <br>
-    
-    <h6>Qual a categoria do produto?</h6>
-    <!-- Adicionado id="categoria" -->
-    <input
-    type="text" 
-    id="categoria"
-    name="categoria"
-    placeholder="Categoria"
-    required
-    >
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>INÍCIO</p>
+        </a>
 
-    <br>
+        <a href="#controle" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-money w3-xxlarge"></i>
+            <p>FINANÇAS</p>
+        </a>
 
-    <h6>Qual é o valor do produto?</h6>
-    <!-- Adicionado id="valor" -->
-    <input
-    type="text" 
-    id="valor"
-    name="valor"
-    placeholder="Valor"
-    required
-    >
-    <br>
-    <br>
-    <button type="submit">
-       Adicionar
-    </button> 
-    <br>
-    
-    <!-- Mudamos o tipo para button para não dar conflito com o envio do formulário -->
-    <button type="button" onclick="window.close()">
-        Sair
-    </button>
+        <a href="#sobre" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>SOBRE</p>
+        </a>
 
-   </form>
-   
-    <br>
-    <!-- Área onde o JS vai colocar a mensagem de "Cadastrada com sucesso!" -->
-    <div id="mensagem-container"></div>
+        <a href="#contato" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-envelope w3-xxlarge"></i>
+            <p>CONTATO</p>
+        </a>
 
-    <h2>Lista de despesas</h2>
+    </nav>
 
-    <!-- Esta área (div) vai receber a lista de despesas criada pelo JS -->
-    <div id="lista-despesas-container">
-        <p>Nenhuma despesa cadastrada.</p>
+
+    <!-- MENU PARA CELULAR -->
+    <div class="w3-top w3-hide-large w3-hide-medium">
+
+        <div class="w3-bar w3-black w3-center w3-small">
+
+            <a href="#" class="w3-bar-item w3-button" style="width:25%">
+                INÍCIO
+            </a>
+
+            <a href="#controle" class="w3-bar-item w3-button" style="width:25%">
+                FINANÇAS
+            </a>
+
+            <a href="#sobre" class="w3-bar-item w3-button" style="width:25%">
+                SOBRE
+            </a>
+
+            <a href="#contato" class="w3-bar-item w3-button" style="width:25%">
+                CONTATO
+            </a>
+
+        </div>
+
     </div>
 
-    <!-- Esta área vai receber o valor total calculado pelo JS -->
-    <div id="total-container"></div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="w3-padding-large" id="main">
+
+
+        <!-- INÍCIO -->
+        <header class="w3-container w3-padding-64 w3-center" id="home">
+
+            <h1 class="w3-jumbo">
+                Controle Financeiro
+            </h1>
+
+            <p>
+                Organize suas despesas de forma simples e prática.
+            </p>
+
+            <i class="fa fa-line-chart w3-jumbo"></i>
+
+        </header>
+
+
+        <!-- CONTROLE FINANCEIRO -->
+        <div class="w3-content w3-padding-64 controle-financeiro" id="controle">
+
+            <h2 class="w3-text-light-grey">
+                Controle Financeiro
+            </h2>
+
+            <hr style="width:250px" class="w3-opacity">
+
+
+            <!-- FORMULÁRIO -->
+            <form id="formulario-despesa">
+
+                <h6>
+                    Qual a descrição do produto?
+                </h6>
+
+                <input
+                    type="text"
+                    id="descricao"
+                    name="descricao"
+                    placeholder="Descrição"
+                    required
+                >
+
+
+                <h6>
+                    Qual a categoria do produto?
+                </h6>
+
+                <input
+                    type="text"
+                    id="categoria"
+                    name="categoria"
+                    placeholder="Categoria"
+                    required
+                >
+
+
+                <h6>
+                    Qual é o valor do produto?
+                </h6>
+
+                <input
+                    type="text"
+                    id="valor"
+                    name="valor"
+                    placeholder="Valor"
+                    required
+                >
+
+
+                <br>
+
+                <button
+                    class="w3-button w3-light-grey w3-padding-large"
+                    type="submit">
+                    <i class="fa fa-plus"></i>
+                    Adicionar
+                </button>
+
+
+                <button
+                    class="w3-button w3-dark-grey w3-padding-large"
+                    type="button"
+                    onclick="window.close()">
+                    <i class="fa fa-sign-out"></i>
+                    Sair
+                </button>
+
+            </form>
+
+
+            <!-- MENSAGEM -->
+            <div id="mensagem-container"></div>
+
+
+            <!-- LISTA DE DESPESAS -->
+            <h2 class="w3-text-light-grey">
+                Lista de despesas
+            </h2>
+
+            <div id="lista-despesas-container">
+
+                <p>
+                    Nenhuma despesa cadastrada.
+                </p>
+
+            </div>
+
+
+            <!-- TOTAL -->
+            <div id="total-container"></div>
+
+        </div>
+
+
+        <!-- SOBRE -->
+        <div class="w3-content w3-padding-64" id="sobre">
+
+            <h2 class="w3-text-light-grey">
+                Sobre o projeto
+            </h2>
+
+            <hr style="width:200px" class="w3-opacity">
+
+            <p class="w3-text-grey">
+                Este projeto foi desenvolvido para auxiliar no controle
+                e organização das despesas pessoais. O sistema permite
+                cadastrar produtos, informar suas categorias e valores,
+                além de visualizar a lista de despesas cadastradas e
+                o valor total.
+            </p>
+
+        </div>
+
+
+        <!-- CONTATO -->
+        <div class="w3-content w3-padding-64" id="contato">
+
+            <h2 class="w3-text-light-grey">
+                Contato
+            </h2>
+
+            <hr style="width:200px" class="w3-opacity">
+
+            <p>
+                Entre em contato para mais informações sobre o projeto.
+            </p>
+
+            <p>
+                <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge"></i>
+                Email: contato@exemplo.com
+            </p>
+
+        </div>
+
+
+        <!-- RODAPÉ -->
+        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+
+            <p class="w3-medium">
+                Controle Financeiro
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="fin.js"></script>
+
+</body>
+
+</html>
 
     <!-- Vincula o arquivo JavaScript que criamos abaixo -->
     <script src="fin.js"></script>

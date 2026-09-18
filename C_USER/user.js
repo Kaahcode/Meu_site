@@ -1,6 +1,5 @@
-// ==========================================
-// CLASSE E LISTA (IGUALZINHO AO SEU PYTHON)
-// ==========================================
+
+// Classe e Lista
 
 class Usuario {
     constructor(nome, idade, cpf, telefone, genero) {
@@ -11,7 +10,7 @@ class Usuario {
         this.genero = genero;
     }
 
-    // Método que você criou no Python para formatar o texto
+    // Método de formatar o texto
     mostrar() {
         return `Nome: ${this.nome} | Idade: ${this.idade} | CPF: ${this.cpf} | Telefone: ${this.telefone} | Gênero: ${this.genero}`;
     }
@@ -20,20 +19,19 @@ class Usuario {
 // Inicializa a lista carregando do navegador ou começando vazia []
 let usuarios = JSON.parse(localStorage.getItem("usuarios_salvos")) || [];
 
-// ==========================================
-// CONTROLE DA TELA (FRONT-END)
-// ==========================================
+// Controle de tela (FRONT-END)
 
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formulario-cadastro");
     const containerMensagem = document.getElementById("mensagem-container");
     const containerLista = document.getElementById("lista-usuarios-container");
 
-    // Mostra os usuários assim que abre a página
+    // Mostrar os usuários assim que abre a página
     atualizarTela(containerLista);
 
     if (formulario) {
         formulario.addEventListener("submit", (event) => {
+
             // Impede a página de recarregar
             event.preventDefault();
 
@@ -65,10 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// ==========================================
-// FUNÇÕES DE EXIBIÇÃO E REMOÇÃO
-// ==========================================
-
+// Funções de adicionar e remover
 function atualizarTela(containerLista) {
     if (!containerLista) return;
 
@@ -80,7 +75,7 @@ function atualizarTela(containerLista) {
         return;
     }
 
-    // Faz o papel do seu {% for usuario in usuarios %} do HTML antigo
+    // Faz o papel do seu {% for usuario in usuarios %} 
     usuarios.forEach((user, indice) => {
         // Recria o objeto com a classe para poder usar o método .mostrar()
         const usuarioInstanciado = new Usuario(user.nome, user.idade, user.cpf, user.telefone, user.genero);
@@ -101,15 +96,16 @@ function atualizarTela(containerLista) {
     });
 }
 
-// CORRESPONDE À SUA ROTA @app.route("/remover/<int:indice>")
-window.removerUsuario = function(indice) {
+// Corresponder a rota
+window.removerUsuario = function (indice) {
+
     // Remove o usuário da lista pelo índice igual ao seu usuarios.pop(indice)
     if (indice >= 0 && indice < usuarios.length) {
         usuarios.splice(indice, 1);
-        
+
         // Atualiza a memória do navegador
         localStorage.setItem("usuarios_salvos", JSON.stringify(usuarios));
-        
+
         // Atualiza a lista na tela na hora
         const containerLista = document.getElementById("lista-usuarios-container");
         atualizarTela(containerLista);
